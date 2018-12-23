@@ -1,7 +1,20 @@
 body {
-    background-color: dimgray;
+    background-color: ghostwhite;
 }
 
-.Header {
-    color: dimgray;
+.header {
+    text-align: center;
+    margin-top: -9px;
+    font-family: 'Roboto', sans-serif;
+    background-color: dimgrey;
+    line-height: 90px;
+    color: white;
+    margin-left: -8px;
+    margin-right: -8px
+}
+
+.center {
+  display: table;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
 }
