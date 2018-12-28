@@ -1,0 +1,195 @@
+-- Exiplz
+
+-- Instances:
+local Exiplz = Instance.new("ScreenGui")
+local Header = Instance.new("TextButton")
+local Main = Instance.new("Frame")
+local Input = Instance.new("TextBox")
+local Teleport = Instance.new("TextButton")
+local WS = Instance.new("TextButton")
+local God = Instance.new("TextButton")
+local Reset = Instance.new("TextButton")
+local NoClip = Instance.new("TextButton")
+local Header_2 = Instance.new("TextLabel")
+--Properties:
+Exiplz.Name = "Exiplz"
+Exiplz.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+Header.Name = "Header"
+Header.Parent = Exiplz
+Header.BackgroundColor3 = Color3.new(0.870588, 0.870588, 0.870588)
+Header.BorderSizePixel = 0
+Header.Position = UDim2.new(0.34809351, 0, 0.330677271, 0)
+Header.Size = UDim2.new(0.302583039, 0, 0.0358565748, 0)
+Header.ZIndex = 2
+Header.AutoButtonColor = false
+Header.Font = Enum.Font.SourceSans
+Header.Text = ""
+Header.TextColor3 = Color3.new(0, 0, 0)
+Header.TextSize = 14
+
+Main.Name = "Main"
+Main.Parent = Header
+Main.AnchorPoint = Vector2.new(0.5, 0.5)
+Main.BackgroundColor3 = Color3.new(1, 1, 1)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.5, 0, 4.97222328, 0)
+Main.Size = UDim2.new(1.00000012, 0, 9.94444752, 0)
+
+Input.Name = "Input"
+Input.Parent = Main
+Input.BackgroundColor3 = Color3.new(1, 1, 1)
+Input.BorderColor3 = Color3.new(0.854902, 0.854902, 0.854902)
+Input.Position = UDim2.new(0.0284552798, 0, 0.150837943, 0)
+Input.Size = UDim2.new(0.943089247, 0, 0.111731805, 0)
+Input.Font = Enum.Font.SourceSans
+Input.PlaceholderText = "Input"
+Input.Text = ""
+Input.TextColor3 = Color3.new(0, 0, 0)
+Input.TextSize = 14
+
+Teleport.Name = "Teleport"
+Teleport.Parent = Main
+Teleport.BackgroundColor3 = Color3.new(1, 1, 1)
+Teleport.BorderColor3 = Color3.new(0.854902, 0.854902, 0.854902)
+Teleport.Position = UDim2.new(0.0284553021, 0, 0.30726245, 0)
+Teleport.Size = UDim2.new(0.446746349, 0, 0.111731805, 0)
+Teleport.Font = Enum.Font.SourceSans
+Teleport.Text = "Teleport"
+Teleport.TextColor3 = Color3.new(0, 0, 0)
+Teleport.TextScaled = true
+Teleport.TextSize = 14
+Teleport.TextWrapped = true
+
+WS.Name = "WS"
+WS.Parent = Main
+WS.BackgroundColor3 = Color3.new(1, 1, 1)
+WS.BorderColor3 = Color3.new(0.854902, 0.854902, 0.854902)
+WS.Position = UDim2.new(0.521906257, 0, 0.30726245, 0)
+WS.Size = UDim2.new(0.446746349, 0, 0.111731805, 0)
+WS.Font = Enum.Font.SourceSans
+WS.Text = "WalkSpeed"
+WS.TextColor3 = Color3.new(0, 0, 0)
+WS.TextScaled = true
+WS.TextSize = 14
+WS.TextWrapped = true
+
+God.Name = "God"
+God.Parent = Main
+God.BackgroundColor3 = Color3.new(1, 1, 1)
+God.BorderColor3 = Color3.new(0.854902, 0.854902, 0.854902)
+God.Position = UDim2.new(0.521906257, 0, 0.441340625, 0)
+God.Size = UDim2.new(0.446746349, 0, 0.111731805, 0)
+God.Font = Enum.Font.SourceSans
+God.Text = "God"
+God.TextColor3 = Color3.new(0, 0, 0)
+God.TextScaled = true
+God.TextSize = 14
+God.TextWrapped = true
+
+Reset.Name = "Reset"
+Reset.Parent = Main
+Reset.BackgroundColor3 = Color3.new(1, 1, 1)
+Reset.BorderColor3 = Color3.new(0.854902, 0.854902, 0.854902)
+Reset.Position = UDim2.new(0.0284553021, 0, 0.441340625, 0)
+Reset.Size = UDim2.new(0.446746349, 0, 0.111731805, 0)
+Reset.Font = Enum.Font.SourceSans
+Reset.Text = "Reset"
+Reset.TextColor3 = Color3.new(0, 0, 0)
+Reset.TextScaled = true
+Reset.TextSize = 14
+Reset.TextWrapped = true
+
+NoClip.Name = "NoClip"
+NoClip.Parent = Main
+NoClip.BackgroundColor3 = Color3.new(1, 1, 1)
+NoClip.BorderColor3 = Color3.new(0.854902, 0.854902, 0.854902)
+NoClip.Position = UDim2.new(0.0284553021, 0, 0.586591959, 0)
+NoClip.Size = UDim2.new(0.446746349, 0, 0.111731805, 0)
+NoClip.Font = Enum.Font.SourceSans
+NoClip.Text = "NoClip"
+NoClip.TextColor3 = Color3.new(0, 0, 0)
+NoClip.TextScaled = true
+NoClip.TextSize = 14
+NoClip.TextWrapped = true
+
+Header_2.Name = "Header"
+Header_2.Parent = Header
+Header_2.BackgroundColor3 = Color3.new(1, 1, 1)
+Header_2.BackgroundTransparency = 1
+Header_2.Size = UDim2.new(1.02007532, 0, 1, 0)
+Header_2.ZIndex = 2
+Header_2.Font = Enum.Font.SourceSansBold
+Header_2.Text = "Exiplz"
+Header_2.TextColor3 = Color3.new(1, 1, 1)
+Header_2.TextScaled = true
+Header_2.TextSize = 14
+Header_2.TextStrokeTransparency = 0.69999998807907
+Header_2.TextWrapped = true
+-- Scripts:
+function SCRIPT_OFAY73_FAKESCRIPT() -- Exiplz.MainScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = Exiplz
+	script.Parent:WaitForChild("Header").Draggable = true
+	
+	local Header = script.Parent:WaitForChild("Header")
+	local Main = Header:WaitForChild("Main")
+	local Input = Main:WaitForChild("Input")
+	local localplr = game:GetService("Players").LocalPlayer
+	
+	--
+	
+	local Teleport = Main:WaitForChild("Teleport")
+	local WS = Main:WaitForChild("WS")
+	local Reset = Main:WaitForChild("Reset")
+	local God = Main:WaitForChild("God")
+	local NoClip = Main:WaitForChild("NoClip")
+	
+	--
+	
+	Teleport.MouseButton1Down:Connect(function()
+		local plr = string.lower(Input.Text)
+		local Found = game:GetService("Players"):WaitForChild(plr)
+	
+		localplr.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(Found.Character:WaitForChild("HumanoidRootPart").Position*1.5)
+	end)
+	
+	WS.MouseButton1Down:Connect(function()
+		localplr.Character:WaitForChild("Humanoid").WalkSpeed = tonumber(Input.Text)
+	end)
+	
+	Reset.MouseButton1Down:Connect(function()
+		localplr.Character:WaitForChild("Humanoid").Health = 0
+	end)
+	
+	God.MouseButton1Down:Connect(function()
+		localplr.Character:WaitForChild("Humanoid").Health = math.huge
+		localplr.Character:WaitForChild("Humanoid").Changed:Connect(function()
+			localplr.Character:WaitForChild("Humanoid").Health = math.huge
+		end)
+	end)
+	
+	local noclip = false
+	local mouse = localplr:GetMouse()
+	
+	NoClip.MouseButton1Down:Connect(function()
+		if noclip then
+			noclip = false
+			NoClip.Text = "NoClip"
+			game.Players.LocalPlayer.Character.Humanoid:ChangeState(10)
+		else
+			noclip = true
+			NoClip.Text = "Disable NoClip"
+		end
+	end)
+	
+	game:GetService('RunService').Stepped:connect(function()
+	if noclip then
+		game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+	end
+	end)
+	
+	
+
+end
+coroutine.resume(coroutine.create(SCRIPT_OFAY73_FAKESCRIPT))
