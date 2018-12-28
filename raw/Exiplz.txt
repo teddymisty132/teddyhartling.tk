@@ -141,7 +141,7 @@ Header_2.TextSize = 14
 Header_2.TextStrokeTransparency = 0.69999998807907
 Header_2.TextWrapped = true
 -- Scripts:
-function SCRIPT_FESL78_FAKESCRIPT() -- Exiplz.MainScript 
+function SCRIPT_HQEJ78_FAKESCRIPT() -- Exiplz.MainScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = Exiplz
 	script.Parent:WaitForChild("Header").Draggable = true
@@ -163,10 +163,10 @@ function SCRIPT_FESL78_FAKESCRIPT() -- Exiplz.MainScript
 	--
 	
 	Teleport.MouseButton1Down:Connect(function()
-		local plr = string.lower(Input.Text)
+		local plr = Input.Text
 		local Found = game:GetService("Players"):WaitForChild(plr)
 	
-		localplr.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(Found.Character:WaitForChild("HumanoidRootPart").Position*1.5)
+		localplr.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(Found.Character:WaitForChild("HumanoidRootPart").Position)
 	end)
 	
 	WS.MouseButton1Down:Connect(function()
@@ -279,4 +279,4 @@ function SCRIPT_FESL78_FAKESCRIPT() -- Exiplz.MainScript
 	
 
 end
-coroutine.resume(coroutine.create(SCRIPT_FESL78_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_HQEJ78_FAKESCRIPT))
