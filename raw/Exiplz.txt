@@ -19,7 +19,7 @@ local Header_2 = Instance.new("TextLabel")
 local Input = Instance.new("TextBox")
 --Properties:
 Exiplz.Name = "Exiplz"
-Exiplz.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Exiplz.Parent = game:GetService("CoreGui")
 
 Header.Name = "Header"
 Header.Parent = Exiplz
