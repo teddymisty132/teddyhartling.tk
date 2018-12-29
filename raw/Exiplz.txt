@@ -1,5 +1,5 @@
 -- Exiplz
--- Version: 2.0.5
+-- Version: 2.1.0
 
 local Exiplz = Instance.new("ScreenGui")
 local Header = Instance.new("TextButton")
@@ -198,7 +198,7 @@ Input.Text = ""
 Input.TextColor3 = Color3.new(0, 0, 0)
 Input.TextSize = 14
 -- Scripts:
-function SCRIPT_SKUL85_FAKESCRIPT() -- Exiplz.MainScript 
+function SCRIPT_JDTL76_FAKESCRIPT() -- Exiplz.MainScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = Exiplz
 	script.Parent:WaitForChild("Header").Draggable = true
@@ -222,11 +222,33 @@ function SCRIPT_SKUL85_FAKESCRIPT() -- Exiplz.MainScript
 	
 	--
 	
-	Teleport.MouseButton1Down:Connect(function()
-		local plr = string.lower(Input.Text)
-		local Found = game:GetService("Players"):WaitForChild(plr)
+	function GetPlayer(String)
+	local Found = {}
+	local strl = String:lower()
+	if strl == "all" then
+	for i,v in pairs(game.Players:GetPlayers()) do
+	table.insert(Found,v)
+	end
+	elseif strl == "others" then
+	for i,v in pairs(game.Players:GetPlayers()) do
+	if v.Name ~= game.Players.LocalPlayer.Name then
+	table.insert(Found,v)
+	end
+	end 
+	else
+	for i,v in pairs(game.Players:GetPlayers()) do
+	if v.Name:lower():sub(1, #String) == String:lower() then
+	table.insert(Found,v)
+	end
+	end 
+	end
+	return Found 
+	end
 	
-		localplr.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(Found.Character:WaitForChild("HumanoidRootPart").Position*1.5)
+	Teleport.MouseButton1Down:Connect(function()
+		for i,v in pairs(GetPlayer(Input.Text)) do
+			localplr.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(v.Character:WaitForChild("HumanoidRootPart").Position*1.5)
+		end
 	end)
 	
 	WS.MouseButton1Down:Connect(function()
@@ -446,29 +468,6 @@ function SCRIPT_SKUL85_FAKESCRIPT() -- Exiplz.MainScript
 	
 	
 	
-	function GetPlayer(String)
-	local Found = {}
-	local strl = String:lower()
-	if strl == "all" then
-	for i,v in pairs(game.Players:GetPlayers()) do
-	table.insert(Found,v)
-	end
-	elseif strl == "others" then
-	for i,v in pairs(game.Players:GetPlayers()) do
-	if v.Name ~= game.Players.LocalPlayer.Name then
-	table.insert(Found,v)
-	end
-	end 
-	else
-	for i,v in pairs(game.Players:GetPlayers()) do
-	if v.Name:lower():sub(1, #String) == String:lower() then
-	table.insert(Found,v)
-	end
-	end 
-	end
-	return Found 
-	end
-	
 	Fling.MouseButton1Click:connect(function()
 	for i,v in pairs(GetPlayer(Input.Text)) do
 	local Target = game.Players:FindFirstChild("Predecoris")
@@ -537,4 +536,4 @@ function SCRIPT_SKUL85_FAKESCRIPT() -- Exiplz.MainScript
 	
 
 end
-coroutine.resume(coroutine.create(SCRIPT_SKUL85_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_JDTL76_FAKESCRIPT))
