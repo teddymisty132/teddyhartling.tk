@@ -1,5 +1,5 @@
 -- Exiplz
--- Version: 2.1.0
+-- Version: 2.0.5
 
 local Exiplz = Instance.new("ScreenGui")
 local Header = Instance.new("TextButton")
@@ -19,7 +19,7 @@ local Header_2 = Instance.new("TextLabel")
 local Input = Instance.new("TextBox")
 --Properties:
 Exiplz.Name = "Exiplz"
-Exiplz.Parent = game:GetService("CoreGui")
+Exiplz.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
 Header.Name = "Header"
 Header.Parent = Exiplz
@@ -198,7 +198,7 @@ Input.Text = ""
 Input.TextColor3 = Color3.new(0, 0, 0)
 Input.TextSize = 14
 -- Scripts:
-function SCRIPT_JDTL76_FAKESCRIPT() -- Exiplz.MainScript 
+function SCRIPT_YQBP89_FAKESCRIPT() -- Exiplz.MainScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = Exiplz
 	script.Parent:WaitForChild("Header").Draggable = true
@@ -247,7 +247,7 @@ function SCRIPT_JDTL76_FAKESCRIPT() -- Exiplz.MainScript
 	
 	Teleport.MouseButton1Down:Connect(function()
 		for i,v in pairs(GetPlayer(Input.Text)) do
-			localplr.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(v.Character:WaitForChild("HumanoidRootPart").Position*1.5)
+			localplr.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(v.Character:WaitForChild("HumanoidRootPart").Position)
 		end
 	end)
 	
@@ -536,4 +536,4 @@ function SCRIPT_JDTL76_FAKESCRIPT() -- Exiplz.MainScript
 	
 
 end
-coroutine.resume(coroutine.create(SCRIPT_JDTL76_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_YQBP89_FAKESCRIPT))
