@@ -1,5 +1,5 @@
 -- Exiplz
-
+-- Version: 2.0.5
 
 local Exiplz = Instance.new("ScreenGui")
 local Header = Instance.new("TextButton")
@@ -13,6 +13,8 @@ local Teleport = Instance.new("TextButton")
 local WS = Instance.new("TextButton")
 local UIGridLayout = Instance.new("UIGridLayout")
 local Fly = Instance.new("TextButton")
+local OOF = Instance.new("TextButton")
+local Fling = Instance.new("TextButton")
 local Header_2 = Instance.new("TextLabel")
 local Input = Instance.new("TextBox")
 --Properties:
@@ -144,6 +146,32 @@ Fly.TextScaled = true
 Fly.TextSize = 14
 Fly.TextWrapped = true
 
+OOF.Name = "OOF"
+OOF.Parent = Buttons
+OOF.BackgroundColor3 = Color3.new(1, 1, 1)
+OOF.BorderColor3 = Color3.new(0.854902, 0.854902, 0.854902)
+OOF.Position = UDim2.new(0.024390243, 0, 0.00265908614, 0)
+OOF.Size = UDim2.new(0.446746349, 0, 0.054857105, 0)
+OOF.Font = Enum.Font.SourceSans
+OOF.Text = "OOF"
+OOF.TextColor3 = Color3.new(0, 0, 0)
+OOF.TextScaled = true
+OOF.TextSize = 14
+OOF.TextWrapped = true
+
+Fling.Name = "Fling"
+Fling.Parent = Buttons
+Fling.BackgroundColor3 = Color3.new(1, 1, 1)
+Fling.BorderColor3 = Color3.new(0.854902, 0.854902, 0.854902)
+Fling.Position = UDim2.new(0.51784122, 0, 0.0684875771, 0)
+Fling.Size = UDim2.new(0.446746349, 0, 0.054857105, 0)
+Fling.Font = Enum.Font.SourceSans
+Fling.Text = "Fling"
+Fling.TextColor3 = Color3.new(0, 0, 0)
+Fling.TextScaled = true
+Fling.TextSize = 14
+Fling.TextWrapped = true
+
 Header_2.Name = "Header"
 Header_2.Parent = Header
 Header_2.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -170,7 +198,7 @@ Input.Text = ""
 Input.TextColor3 = Color3.new(0, 0, 0)
 Input.TextSize = 14
 -- Scripts:
-function SCRIPT_MYLJ65_FAKESCRIPT() -- Exiplz.MainScript 
+function SCRIPT_SKUL85_FAKESCRIPT() -- Exiplz.MainScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = Exiplz
 	script.Parent:WaitForChild("Header").Draggable = true
@@ -189,6 +217,8 @@ function SCRIPT_MYLJ65_FAKESCRIPT() -- Exiplz.MainScript
 	local NoClip = Main:WaitForChild("NoClip")
 	local ESP = Main:WaitForChild("ESP")
 	local Fly = Main:WaitForChild("Fly")
+	local OOF = Main:WaitForChild("OOF")
+	local Fling = Main:WaitForChild("Fling")
 	
 	--
 	
@@ -406,6 +436,105 @@ function SCRIPT_MYLJ65_FAKESCRIPT() -- Exiplz.MainScript
 	end
 	end)
 	
+	OOF.MouseButton1Down:Connect(function()
+		for i,v in pairs(game.Players:GetPlayers()) do
+			v.Character.Head.Died.Playing = true
+			--If you want to make it more annyoing
+			v.Character.Head.Splashed.Playing = true
+		end
+	end)
+	
+	
+	
+	function GetPlayer(String)
+	local Found = {}
+	local strl = String:lower()
+	if strl == "all" then
+	for i,v in pairs(game.Players:GetPlayers()) do
+	table.insert(Found,v)
+	end
+	elseif strl == "others" then
+	for i,v in pairs(game.Players:GetPlayers()) do
+	if v.Name ~= game.Players.LocalPlayer.Name then
+	table.insert(Found,v)
+	end
+	end 
+	else
+	for i,v in pairs(game.Players:GetPlayers()) do
+	if v.Name:lower():sub(1, #String) == String:lower() then
+	table.insert(Found,v)
+	end
+	end 
+	end
+	return Found 
+	end
+	
+	Fling.MouseButton1Click:connect(function()
+	for i,v in pairs(GetPlayer(Input.Text)) do
+	local Target = game.Players:FindFirstChild("Predecoris")
+	local Torso = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local SavedPos = Torso.CFrame
+	local Active = true
+	local TimeDelay = 4
+	local POWER = 9e5
+	
+	game:GetService('RunService').Stepped:connect(function()
+	if Active == true then
+	if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+	game.Players.LocalPlayer.Character.Head.CanCollide = false
+	game.Players.LocalPlayer.Character.Torso.CanCollide = false
+	game.Players.LocalPlayer.Character["Left Leg"].CanCollide = false
+	game.Players.LocalPlayer.Character["Right Leg"].CanCollide = false
+	POWER = 9e5
+	else
+	if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+	game.Players.LocalPlayer.Character.Head.CanCollide = false
+	game.Players.LocalPlayer.Character.UpperTorso.CanCollide = false
+	game.Players.LocalPlayer.Character.LowerTorso.CanCollide = false
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
+	POWER = 9e4
+	end
+	end
+	end
+	end)
+	
+	local bambam = Instance.new("BodyThrust")
+	bambam.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+	bambam.Force = Vector3.new(POWER,0,POWER)
+	bambam.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+	wait()
+	local Still = Instance.new("BodyGyro", Torso)
+	Still.P = 9e4
+	Still.MaxTorque = Vector3.new(9e9, 9e9, 9e9)
+	Still.CFrame = Torso.CFrame
+	local BodyVelocity = Instance.new("BodyVelocity", Torso)
+	BodyVelocity.Velocity = Vector3.new(0,0.1,0)
+	BodyVelocity.MaxForce = Vector3.new(9e9, 9e9, 9e9)
+	
+	game:GetService('RunService').Stepped:connect(function()
+	if Active == true then
+	Torso.CFrame = game.Players:FindFirstChild(v.Name).Character.HumanoidRootPart.CFrame
+	end
+	end)
+	wait(TimeDelay)
+	Active = false
+	for i,v in pairs(Torso:GetChildren()) do
+	if v:IsA("BodyThrust") then
+	v:Destroy()
+	wait()
+	else
+	if v:IsA("BodyVelocity") or v:IsA("BodyGyro") then
+	wait()
+	v:Destroy()
+	end
+	end
+	end
+	Torso.CFrame = SavedPos
+	wait()
+	Torso.CFrame = SavedPos
+	end
+	end)
+	
 
 end
-coroutine.resume(coroutine.create(SCRIPT_MYLJ65_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_SKUL85_FAKESCRIPT))
