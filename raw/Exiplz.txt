@@ -1,5 +1,5 @@
 -- Exiplz
--- Version: 2.5.2
+-- Version: 2.5.5
 
 local Exiplz = Instance.new("ScreenGui")
 local Header = Instance.new("TextButton")
@@ -17,6 +17,8 @@ local OOF = Instance.new("TextButton")
 local Fling = Instance.new("TextButton")
 local Header_2 = Instance.new("TextLabel")
 local Input = Instance.new("TextBox")
+local Close = Instance.new("TextButton")
+local Open = Instance.new("TextButton")
 --Properties:
 Exiplz.Name = "Exiplz"
 Exiplz.Parent = game:GetService("CoreGui")
@@ -197,8 +199,37 @@ Input.PlaceholderText = "Input"
 Input.Text = ""
 Input.TextColor3 = Color3.new(0, 0, 0)
 Input.TextSize = 14
+
+Close.Name = "Close"
+Close.Parent = Header
+Close.BackgroundColor3 = Color3.new(1, 1, 1)
+Close.BorderSizePixel = 0
+Close.Position = UDim2.new(0.927969277, 0, 0, 0)
+Close.Size = UDim2.new(0.0720307678, 0, 0.974101782, 0)
+Close.ZIndex = 900
+Close.Font = Enum.Font.SourceSans
+Close.Text = "X"
+Close.TextColor3 = Color3.new(0, 0, 0)
+Close.TextScaled = true
+Close.TextSize = 14
+Close.TextWrapped = true
+
+Open.Name = "Open"
+Open.Parent = Exiplz
+Open.BackgroundColor3 = Color3.new(1, 1, 1)
+Open.BorderSizePixel = 0
+Open.Position = UDim2.new(0.895448923, 0, 0.934262931, 0)
+Open.Size = UDim2.new(0.0762607604, 0, 0.0398406386, 0)
+Open.Visible = false
+Open.ZIndex = 900
+Open.Font = Enum.Font.SourceSans
+Open.Text = "Open"
+Open.TextColor3 = Color3.new(0, 0, 0)
+Open.TextScaled = true
+Open.TextSize = 14
+Open.TextWrapped = true
 -- Scripts:
-function SCRIPT_YQBP89_FAKESCRIPT() -- Exiplz.MainScript 
+function SCRIPT_ZTYX77_FAKESCRIPT() -- Exiplz.MainScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = Exiplz
 	script.Parent:WaitForChild("Header").Draggable = true
@@ -219,8 +250,20 @@ function SCRIPT_YQBP89_FAKESCRIPT() -- Exiplz.MainScript
 	local Fly = Main:WaitForChild("Fly")
 	local OOF = Main:WaitForChild("OOF")
 	local Fling = Main:WaitForChild("Fling")
+	local Open = script.Parent:WaitForChild("Open")
+	local Close = Header:WaitForChild("Close")
 	
 	--
+	
+	Close.MouseButton1Down:Connect(function()
+		Open.Visible = true
+		Header.Visible = false
+	end)
+	
+	Open.MouseButton1Down:Connect(function()
+		Open.Visible = false
+		Header.Visible = true
+	end)
 	
 	function GetPlayer(String)
 	local Found = {}
@@ -536,4 +579,4 @@ function SCRIPT_YQBP89_FAKESCRIPT() -- Exiplz.MainScript
 	
 
 end
-coroutine.resume(coroutine.create(SCRIPT_YQBP89_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_ZTYX77_FAKESCRIPT))
